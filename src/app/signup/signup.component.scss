@@ -1,0 +1,30 @@
+.card {
+    background-color: #eff3f8;
+  
+    ::ng-deep .p-card {
+      width: 600px;
+      padding: 2rem 1.5rem;
+      border-radius: 1rem;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    }
+  
+    ::ng-deep p-dropdown .p-dropdown {
+      width: 100%;
+    }
+  
+    ::ng-deep p-password .p-password {
+      width: 100%;
+      .p-password-input {
+        width: 100%;
+      }
+    }
+  
+    .upload-files ::ng-deep button.p-button:focus {
+      outline: none;
+      box-shadow: none;
+    }
+  
+    .login a {
+      color: gray;
+    }
+  }

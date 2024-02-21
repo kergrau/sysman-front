@@ -1,0 +1,17 @@
+<div class="flex justify-content-center align-items-center">
+    <div class="dashboard-body pt-6">
+      <h1 class="mb-6">Welcome {{tokenService.getUsername()}},</h1>
+      <h2 class="mb-6">What do you want to do today ?</h2>
+    
+      <p-card>
+        <ng-template pTemplate="header">
+          <h3 class="py-4">These are your actions:</h3>
+        </ng-template>
+        <div class="card-content flex justify-content-around align-items-center">
+          <p-button label="Pending invoices" [rounded]="true" [raised]="true" routerLink="pending-invoices" severity="secondary"></p-button>
+          <p-button label="Generate invoice" [rounded]="true" [raised]="true" routerLink="generate-invoices" severity="secondary"></p-button>
+          <p-button label="Approved invoices" [rounded]="true" [raised]="true" routerLink="approved-invoices" severity="secondary"></p-button>
+        </div>
+      </p-card>
+    </div>
+  </div>

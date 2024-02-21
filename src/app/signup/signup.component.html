@@ -1,0 +1,74 @@
+<p-toast></p-toast>
+<div class="card flex justify-content-center py-5">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <p-card header="Register">
+            <div class="">
+                <div class="formgrid grid">
+                    <div class="field col mt-3">
+                        <label htmlFor="email">Email *</label><br>
+                        <input class="w-full" pInputText formControlName="email"/>
+                        <div *ngIf="f.email.invalid && (f.email.dirty || f.email.touched)">
+                            <small *ngIf="f.email.errors?.['required']" class="p-error">Email is required</small>
+                            <small *ngIf="f.email.errors?.['email']" class="p-error">Email invalid</small>
+                            <small *ngIf="f.email.errors?.['maxlength']" class="p-error">Maximum 50 letter</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="formgrid grid">
+                    <div class="field col mt-3">
+                        <label htmlFor="username">Username *</label><br>
+                        <input class="w-full" pInputText formControlName="username"/>
+                        <div *ngIf="f.username.invalid && (f.username.dirty || f.username.touched)">
+                            <small *ngIf="f.username.errors?.['required']" class="p-error">Username is required</small>
+                            <small *ngIf="f.username.errors?.['minlength']" class="p-error">Minimum 2 letter</small>
+                            <small *ngIf="f.username.errors?.['maxlength']" class="p-error">Maximum 50 letter</small>
+                            <small *ngIf="f.username.errors?.['pattern']" class="p-error">Only letters and numbers</small>
+                        </div>
+                    </div>
+                    <div class="field col mt-3">
+                        <label htmlFor="password">Password *</label><br>
+                        <p-password
+                            [toggleMask]="true"
+                            [feedback]="false"
+                            formControlName="password"
+                            [required]="true"
+                         />
+                        <div *ngIf="f.password.invalid && (f.password.dirty || f.password.touched)">
+                            <small *ngIf="f.password.errors?.['required']" class="p-error">Password is required</small>
+                            <small *ngIf="f.password.errors?.['minlength']" class="p-error">Minimum 6 letter</small>
+                            <small *ngIf="f.password.errors?.['maxlength']" class="p-error">Maximum 16 letter</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="formgrid grid">
+                    <div class="field col mt-3">
+                        <label htmlFor="confirmPassword">Confirm Password *</label><br>
+                        <p-password
+                            [toggleMask]="true"
+                            [feedback]="false"
+                            formControlName="confirmPassword"
+                         />
+                         <div *ngIf="f.confirmPassword.invalid && (f.confirmPassword.dirty || f.confirmPassword.touched)">
+                            <small *ngIf="f.confirmPassword.errors?.['required']" class="p-error">Confirm Password is required</small>
+                            <small *ngIf="f.confirmPassword.errors?.['matchPassword']" class="p-error">Passwords do not match</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <ng-template pTemplate="footer">
+                <div class="login text-right font-bold text-sm mb-3">
+                    <a class="no-underline color-primary" routerLink="/login">I already have an account</a>
+                </div>
+                <p-button
+                    type="submit"
+                    [disabled]="form.invalid"
+                    label="Sign Up"
+                    [raised]="true"
+                    [loading]="loading"
+                ></p-button>
+            </ng-template>
+        </p-card>
+    </form>
+</div>
+

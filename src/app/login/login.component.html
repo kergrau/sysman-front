@@ -1,0 +1,60 @@
+<div class="card h-full flex justify-content-center align-items-center">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <p-card header="Welcome">
+            <div class="field p-fluid mt-4">
+                <label htmlFor="username">Username</label>
+                <input pInputText formControlName="username" />
+                <div
+                    *ngIf="
+                        f.username.invalid &&
+                        (f.username.dirty || f.username.touched)
+                    "
+                >
+                    <small
+                        *ngIf="f.username.errors?.['required']"
+                        id="username-help"
+                        class="p-error"
+                        >Username is required</small
+                    >
+                </div>
+            </div>
+
+            <div class="field p-fluid mt-4">
+                <label htmlFor="password">Password</label>
+                <p-password
+                    [toggleMask]="true"
+                    [feedback]="false"
+                    formControlName="password"
+                />
+                <div
+                    *ngIf="
+                        f.password.invalid &&
+                        (f.password.dirty || f.password.touched)
+                    "
+                >
+                    <small
+                        *ngIf="f.password.errors?.['required']"
+                        id="password-help"
+                        class="p-error"
+                        >Password is required</small
+                    >
+                </div>
+            </div>
+
+            <div class="forgot-pass text-right font-bold text-sm">
+                <a class="no-underline color-primary" routerLink="/signup">Don't have an account? Create one now</a>
+            </div>
+
+            <ng-template pTemplate="footer">
+                <p-button
+                    type="submit"
+                    [disabled]="form.invalid"
+                    label="Sign In"
+                    [raised]="true"
+                    [loading]="loading"
+                ></p-button>
+            </ng-template>
+        </p-card>
+    </form>
+</div>
+

@@ -1,0 +1,20 @@
+<header class="header px-2">
+    <nav class="navbar flex justify-content-start align-items-center">
+      <div class="flex-grow-1">
+        <span class="text-2xl font-semibold">MaryApp</span>
+      </div>
+      <div class="menu flex-grow-1 flex justify-content-around">
+        <ul class="flex align-items-center my-0">
+          <li routerLink="/dashboard">Dashboard</li>
+          <li routerLink="/dashboard/pending-invoices">Pending invoices</li>
+          <li routerLink="/dashboard/generate-invoices">Generate invoices</li>
+          <li routerLink="/dashboard/approved-invoices">Approved invoices</li>
+        </ul>
+      </div>
+      <div class="menu flex-grow-1">
+        <ul class="flex align-items-center my-0 justify-content-end">
+          <li class="flex align-items-center" (click)="logout()"><i class="pi pi-sign-out mr-3"></i><span>Logout</span></li>
+        </ul>
+      </div>
+    </nav>
+  </header>

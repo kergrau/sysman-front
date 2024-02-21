@@ -1,0 +1,26 @@
+.header {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .menu {
+    ul {
+      list-style: none;
+  
+      li {
+        line-height: 4;
+        padding: 0 1rem;
+        cursor: pointer;
+        transition: .5s ease;
+        font-weight: 500;
+      }
+  
+      li:hover {
+        background-color: #2563eb;
+      }
+  
+      li.active {
+        background-color: #1D4ED8;
+      }
+    }
+  }
